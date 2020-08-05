@@ -7,53 +7,56 @@ using namespace StackStructure;
 
 int main()
 {
-    Stack<int> intstk;
+    Stack<int> stck;
 
     cout << "inserting 10 elements" << endl;
+    // Add some numbers
     for (unsigned int i = 0; i < 10; ++i)
-        intstk.push(i);
+        stck.push(i);
 
-    cout << "Size: " << intstk.size() << endl;
-
-    cout << "elements: " << intstk << endl;
-
+    cout << "Size: " << stck.size() << endl;
+    cout << "elements: " << stck << endl;
     cout << "emptying the stack" << endl;
-    while (!intstk.empty())
+
+    // Remove the numbers
+    while (!stck.empty())
     {
-        cout << intstk.top() << " ";
-        intstk.pop();
+        cout << stck.top() << " ";
+        stck.pop();
     }
+
     cout << endl;
-
-    cout << "Size: " << intstk.size() << endl;
-
+    cout << "Size: " << stck.size() << endl;
     cout << "inserting 10 elements" << endl;
 
+    // Add some more numbers
     for (unsigned int i = 0; i < 10; ++i)
-        intstk.push(i);
+        stck.push(i);
 
-    Stack<int> intstk1(intstk);
-    Stack<int> intstk2;
-    intstk2 = intstk;
+    // Test copy constructor
+    Stack<int> stck1(stck);
+    Stack<int> stck2;
+    // Test assignment operator
+    stck2 = stck;
 
-    cout << intstk << endl;
-    cout << intstk1 << endl;
-    cout << intstk2 << endl;
+    cout << stck << endl;
+    cout << stck1 << endl;
+    cout << stck2 << endl;
 
-    if (intstk1 == intstk2)
-        cout << "Equal stacks" << endl;
+    if (stck1 == stck2)
+        cout << "GOOD: Equal stacks" << endl;
     else
         cout << "ERROR: stacks are not equal" << endl;
 
-    intstk1.pop();
+    stck1.pop();
 
-    if (intstk1 == intstk2)
-        cout << "Error: equal stacks" << endl;
+    if (stck1 == stck2)
+        cout << "ERROR: equal stacks" << endl;
     else
-        cout << "Stacks are not equal" << endl;
+        cout << "GOOD: Stacks are not equal" << endl;
 
-    if (intstk1 < intstk2)
-        cout << "intstk1 is less than intstk2" << endl;
+    if (stck1 < stck2)
+        cout << "GOOD: stck1 is less than stck2" << endl;
     else
         cout << "ERROR: wrong comparision" << endl;
 
